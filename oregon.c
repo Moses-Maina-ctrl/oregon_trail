@@ -10,7 +10,9 @@ typedef struct {
 
 void chooseCharacter(void)
 {
-  char name[20];
+  char wagonLeader[10];
+  char wagonMembers[4][10];
+
   int moveChar;
 
   printf("Many kinds of people made the trip to Oregon.\n You may:\n \t 1. Be a banker from Boston\n \t 2. Be a Carpenter from Ohio\n \t 3. Be a farmer from Illinois\n \t 4. Find out the differences between these choices\nWhat is your choice? ");
@@ -20,27 +22,34 @@ void chooseCharacter(void)
   if (moveChar == 1)
   {
     wagon player = {.career="banker", .wallet=1600};
-    printf("wagon: %s  wallet=$ %d",player.career, player.wallet);
+    printf("wagon: %s  wallet=$ %d\n",player.career, player.wallet);
   }
   else if (moveChar == 2)
   {
     wagon player = {.career="carpenter", .wallet=800};
-    printf("wagon: %s  wallet=$ %d",player.career, player.wallet);
+    printf("wagon: %s  wallet=$ %d\n",player.career, player.wallet);
   }
   else if(moveChar == 3)
   {
     wagon player = {.career="farmer", .wallet=400};
-    printf("wagon: %s  wallet=$ %d",player.career, player.wallet);
+    printf("wagon: %s  wallet=$ %d\n",player.career, player.wallet);
   }
   else if (moveChar == 4)
   {
     printf("Travelling to Oregon isn't easy!\nBut if you're a banker, you'll have more money for supplies and services than a farmer or a carpenter");
     printf("\n");
     printf("However, the harder you have to try, the more points you deserve!\n Therefore, the farmer earns the greatest number of points and the banker earns the least");
+    chooseCharacter();
   } else{
     printf("Wrong input, try again");
     chooseCharacter();
   }
+  for (int i =0; i < 4; i++){
+    printf("%d  ",i);
+    fgets(wagonMembers[i],10,stdin);
+    printf("\n");
+  }
+  printf("%s",wagonMembers[0]);
 }
 
 
